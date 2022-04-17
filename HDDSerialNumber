@@ -1,0 +1,36 @@
+//int main() {
+//	BYTE buffer[1024];
+//	WCHAR path[] = L"\\\\.\\PhysicalDrive0";
+//
+//	STORAGE_DEVICE_DESCRIPTOR* descriptor = (STORAGE_DEVICE_DESCRIPTOR*)buffer;
+//	STORAGE_PROPERTY_QUERY p = { StorageDeviceProperty, PropertyStandardQuery };
+//	DWORD retn;
+//	DWORD len = wcslen(path);
+//
+//	HANDLE hDisk = CreateFile(
+//								path, 
+//								0, 
+//								FILE_SHARE_READ | FILE_SHARE_WRITE, 
+//								NULL,
+//								OPEN_EXISTING, 
+//								0, 
+//								NULL);
+//
+//	if (!DeviceIoControl(hDisk, IOCTL_STORAGE_QUERY_PROPERTY, &p, sizeof(p),buffer, sizeof(buffer), &retn, 0))
+//		return -1;
+//
+//	if (descriptor->VendorIdOffset > 0)
+//		printf("VendorId: %s\n", buffer + descriptor->VendorIdOffset);
+//
+//	if (descriptor->ProductIdOffset > 0)
+//		printf("ProductId: %s\n", buffer + descriptor->ProductIdOffset);
+//
+//	if (descriptor->ProductRevisionOffset > 0)
+//		printf("ProductRevision: %s\n", buffer + descriptor->ProductRevisionOffset);
+//
+//	if (descriptor->SerialNumberOffset > 0)
+//		printf("SerialNumber: %s\n", buffer + descriptor->SerialNumberOffset);
+//
+//	CloseHandle(hDisk);
+//	return 0;
+//}
